@@ -9,7 +9,7 @@ const medals = ['&#x1F947;', '&#x1F948;', '&#x1F949;'];
 function Leaderboard() {
   const [entries, setEntries] = useState([]);
   const [error, setError] = useState(null);
-  const endpoint = `${API_BASE}/api/leaderboard/`;
+  const endpoint = `${API_BASE}/api/leaderboard`;
 
   useEffect(() => {
     console.log('Leaderboard: fetching from', endpoint);

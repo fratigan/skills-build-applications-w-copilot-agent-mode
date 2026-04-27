@@ -7,7 +7,7 @@ const API_BASE = process.env.REACT_APP_CODESPACE_NAME
 function Users() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
-  const endpoint = `${API_BASE}/api/users/`;
+  const endpoint = `${API_BASE}/api/users`;
 
   useEffect(() => {
     console.log('Users: fetching from', endpoint);

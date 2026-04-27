@@ -7,7 +7,7 @@ const API_BASE = process.env.REACT_APP_CODESPACE_NAME
 function Activities() {
   const [activities, setActivities] = useState([]);
   const [error, setError] = useState(null);
-  const endpoint = `${API_BASE}/api/activities/`;
+  const endpoint = `${API_BASE}/api/activities`;
 
   useEffect(() => {
     console.log('Activities: fetching from', endpoint);

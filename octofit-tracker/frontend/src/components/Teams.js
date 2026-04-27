@@ -9,7 +9,7 @@ const teamColors = ['primary', 'danger', 'success', 'warning', 'info'];
 function Teams() {
   const [teams, setTeams] = useState([]);
   const [error, setError] = useState(null);
-  const endpoint = `${API_BASE}/api/teams/`;
+  const endpoint = `${API_BASE}/api/teams`;
 
   useEffect(() => {
     console.log('Teams: fetching from', endpoint);

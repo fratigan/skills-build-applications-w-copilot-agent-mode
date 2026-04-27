@@ -16,7 +16,7 @@ const difficultyColor = (level) => {
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [error, setError] = useState(null);
-  const endpoint = `${API_BASE}/api/workouts/`;
+  const endpoint = `${API_BASE}/api/workouts`;
 
   useEffect(() => {
     console.log('Workouts: fetching from', endpoint);
