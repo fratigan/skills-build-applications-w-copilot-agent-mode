@@ -26,8 +26,12 @@ SECRET_KEY = 'django-insecure-cn(4m--ue9_j23h66z9w_$_45)b&eb5@jetb1%c*c3gyfqql4m
 DEBUG = True
 
 
-# Consenti tutte le origini per sviluppo
-ALLOWED_HOSTS = ['*']
+
+# Consenti localhost e codespace URL dinamico
+import os
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if os.environ.get('CODESPACE_NAME'):
+    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
@@ -89,18 +93,15 @@ WSGI_APPLICATION = 'octofit_tracker.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# Usa Djongo per MongoDB
+# Usa Djongo per MongoDB (nessuna autenticazione richiesta)
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'octofit_db',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb://localhost:27017',
-            'username': '',
-            'password': '',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1',
+            'host': 'localhost',
+            'port': 27017,
         },
     }
 }
