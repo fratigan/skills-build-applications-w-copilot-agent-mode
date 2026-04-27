@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-const API_BASE = process.env.REACT_APP_CODESPACE_NAME
-  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-  : 'http://localhost:8000';
-
 const difficultyColor = (level) => {
   switch ((level || '').toLowerCase()) {
     case 'easy':   return 'success';
@@ -16,7 +12,9 @@ const difficultyColor = (level) => {
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [error, setError] = useState(null);
-  const endpoint = `${API_BASE}/api/workouts`;
+  const endpoint = process.env.REACT_APP_CODESPACE_NAME
+    ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts`
+    : 'http://localhost:8000/api/workouts';
 
   useEffect(() => {
     console.log('Workouts: fetching from', endpoint);
