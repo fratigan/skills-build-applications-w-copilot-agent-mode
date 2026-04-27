@@ -1,12 +1,11 @@
 from rest_framework import viewsets, routers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.contrib.auth.models import User
-from .models import Team, Activity, Leaderboard, Workout
+from .models import OctoUser, Team, Activity, Leaderboard, Workout
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = OctoUser.objects.all()
     serializer_class = UserSerializer
 
 class TeamViewSet(viewsets.ModelViewSet):

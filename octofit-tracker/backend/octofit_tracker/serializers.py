@@ -1,11 +1,10 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import Team, Activity, Leaderboard, Workout
+from .models import OctoUser, Team, Activity, Leaderboard, Workout
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['id', 'username', 'email']
+        model = OctoUser
+        fields = ['id', 'username', 'email', 'team']
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,13 +12,11 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class ActivitySerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField()
     class Meta:
         model = Activity
         fields = ['id', 'user', 'type', 'duration']
 
 class LeaderboardSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField()
     class Meta:
         model = Leaderboard
         fields = ['id', 'user', 'points']
